@@ -1,0 +1,411 @@
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f5;color:#1e2522}header{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;border-bottom:1px solid #dfe5e1}.brand img{height:58px;max-width:260px;object-fit:contain}.headright{text-align:right;font-size:12px;line-height:1.6}.appnav{display:flex;gap:8px;padding:10px 24px;background:#24312c;overflow:auto}.appnav button{white-space:nowrap}.navbtn,.toolbar button,.actions button,.section-title button,.order-actions button,.signature-actions button,.address-actions button{border:1px solid #cbd4cf;background:#fff;border-radius:7px;padding:9px 12px;cursor:pointer;font-weight:600}.navbtn{color:#fff;background:#34433d;border-color:#4b5c54}.navbtn.active{background:#2d7b54}.primary{background:#2d7b54!important;color:#fff!important;border-color:#2d7b54!important}.danger{color:#9b2c2c}.appview{max-width:1120px;margin:20px auto;padding:0 16px}.card{background:#fff;border:1px solid #dce3df;border-radius:10px;padding:16px;margin-bottom:14px}.section-title{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.section-title h2{margin:0;font-size:18px}.subtext,.photohelp,.hint{color:#66736d;font-size:13px;margin:4px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:13px}.wide{grid-column:1/-1}input,select,textarea{font:inherit;border:1px solid #cbd4cf;border-radius:7px;padding:10px;background:#fff;width:100%;min-width:0}textarea{resize:vertical}.address-actions{display:flex;align-items:center;gap:8px;margin-top:6px}.address-actions span{font-size:13px}.orderbar{display:flex;justify-content:space-between;gap:20px}.orderbar label{display:flex;gap:7px;align-items:center;font-size:13px}.rowhead,.employee-columns{display:grid;gap:8px;font-size:12px;color:#66736d;font-weight:700;margin-bottom:5px}.mathead,.setuphead{grid-template-columns:minmax(180px,1fr) 130px 120px 42px}.employee-columns,.employee-row{grid-template-columns:1.4fr 100px 100px 110px 130px 42px}.employee-row,.matrow,.setuprow,.masterrow{display:grid;gap:8px;align-items:center;margin:7px 0}.matrow select,.setuprow select{min-width:0}.matrow button,.setuprow button,.employee-row button,.masterrow button{border:0;background:#f1f3f2;border-radius:6px;height:40px;cursor:pointer}.employee-row .hours{background:#f4f6f5}.signature-grid{display:grid;grid-template-columns:130px 1fr 1fr;gap:12px}.signature-block{border:1px solid #dce3df;border-radius:8px;padding:10px}.signature-block canvas{width:100%;height:160px;background:#fff;border-bottom:1px solid #cbd4cf;touch-action:none}.signature-actions{display:flex;gap:6px;margin-top:6px}.filebutton{display:inline-flex!important;align-items:center;background:#fff;border:1px solid #cbd4cf;border-radius:7px;padding:9px 12px;cursor:pointer}.filebutton input{display:none}.photo-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}.photoitem{position:relative;border:1px solid #dce3df;border-radius:8px;overflow:hidden;background:#f7f8f7}.photoitem img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.photoitem button{position:absolute;right:5px;top:5px;border:0;border-radius:50%;width:30px;height:30px;background:#fff;color:#a22;cursor:pointer;font-size:18px}.photoitem small{display:block;padding:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.storage{margin:14px 0;padding:12px;background:#f6f8f7;border:1px solid #dce3df;border-radius:8px}.storage-top{display:flex;justify-content:space-between;gap:12px;font-size:13px}.bar{height:12px;background:#e3e8e5;border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;width:0;background:#2d7b54}.storage small{color:#66736d}.order-list{display:grid;gap:10px}.order-card{border:1px solid #dce3df;border-radius:9px;padding:13px;background:#fbfcfb}.order-main{display:flex;justify-content:space-between;gap:15px}.order-card h3{margin:3px 0 8px;font-size:17px}.order-card p{margin:4px 0;color:#4f5b56;font-size:13px}.order-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.eyebrow{font-size:11px;text-transform:uppercase;color:#2d7b54;font-weight:800;letter-spacing:.05em}.masterhead{display:grid;gap:8px;color:#66736d;font-size:12px;font-weight:700;margin:10px 0 5px}.materialmasterhead{grid-template-columns:1fr 180px 42px}.setupmasterhead{grid-template-columns:1fr 180px 42px}.masterrow{grid-template-columns:1fr 180px 42px}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.voice-row{display:grid;grid-template-columns:1fr auto;gap:8px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.empty-state{color:#66736d;text-align:center;padding:24px}.appointment{border-left:4px solid #2d7b54}
+/* Final preview refinements: travel costs, employee overview and prominent speech input. */
+.voice-row{display:grid;grid-template-columns:1fr 180px;gap:12px;align-items:stretch}
+.voice-row textarea{min-height:150px;font-size:17px}
+.voice-button{min-height:64px;font-size:17px;font-weight:800;border:0;border-radius:10px;background:#2d7b54;color:#fff;cursor:pointer;padding:12px 16px}
+.employee-mobile-columns{display:none}
+.employee-summary{margin-top:10px;padding:10px 12px;background:#f1f5f2;border:1px solid #dce3df;border-radius:8px;text-align:right;font-weight:800;color:#24312c}
+.travel-card{border-left:4px solid #6b7b73}
+@media(max-width:720px){
+header{padding:10px 14px}.headright{display:none}.brand img{height:48px}.appnav{padding:8px 12px}.appview{padding:0 10px;margin:12px auto}
+.grid,.signature-grid{grid-template-columns:1fr}.wide{grid-column:auto}
+
+/* Mitarbeiter: kompakte Übersicht wie in der bisherigen Version */
+.employee-columns{display:none}
+.employee-mobile-columns{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;font-size:11px;color:#66736d;font-weight:800;margin:4px 0 3px}
+.employee-mobile-columns:before{content:'Mitarbeiter';grid-column:1/-1;font-size:12px}
+.employee-row{grid-template-columns:1fr 1fr 1fr 1fr 42px;gap:7px;margin:0 0 10px}
+.employee-row .ename{grid-column:1/-1;grid-row:1}
+.employee-row .beg{grid-column:1;grid-row:2}.employee-row .end{grid-column:2;grid-row:2}.employee-row .pause{grid-column:3;grid-row:2}.employee-row .hours{grid-column:4;grid-row:2}
+.employee-row .ename:before{content:''}
+.employee-row button{grid-column:5;grid-row:2;height:40px}
+.employee-row .ename,.employee-row .beg,.employee-row .end,.employee-row .pause,.employee-row .hours{height:44px}
+.employee-row .ename::placeholder{color:#9da4a1}
+.employee-summary{margin-top:4px}
+.voice-row{grid-template-columns:1fr}.voice-button{min-height:68px;font-size:19px}.voice-row textarea{min-height:180px;font-size:18px}
+.mathead,.setuphead{display:none}.matrow,.setuprow{grid-template-columns:1fr 100px 90px 42px}.order-main{flex-direction:column}.order-actions{justify-content:flex-start}
+.masterhead{display:none}.masterrow{grid-template-columns:1fr 100px 42px}.orderbar{align-items:flex-start;flex-direction:column}.storage-top{flex-direction:column}}
+@page{size:A4 portrait;margin:0}
+@media print{
+  html,body{width:210mm!important;height:297mm!important;margin:0!important;padding:0!important;background:#fff!important;color:#17211c!important;font-family:Arial,Helvetica,sans-serif!important}
+  body{font-size:6.2pt!important}
+  header{display:grid!important;grid-template-columns:50mm 1fr 42mm!important;align-items:center!important;gap:3mm!important;box-sizing:border-box!important;width:194mm!important;height:19mm!important;margin:7mm 8mm 0!important;padding:0 0 2mm!important;border-bottom:1.1mm solid #2d7b54!important;background:#fff!important}
+  .brand img{height:11mm!important;width:auto!important;max-width:48mm!important;object-fit:contain!important}
+  .headright{font-size:4.8pt!important;line-height:1.12!important;color:#486052!important;position:relative!important}
+  .headright b.print-service-title{position:absolute!important;right:0!important;top:0!important;text-align:right!important;color:#1f7b50!important;font-size:7.4pt!important;line-height:1.03!important}
+  .appnav,.actions,.toolbar,.order-actions,.storage,.appointment,.orderbar,.orderbar select,.address-actions,.signature-actions,.photos-card .section-title .filebutton,.photohelp,.subtext,.voice-button,.master-card{display:none!important}
+  main{margin:0!important;padding:0!important}
+  .appview{max-width:none!important;margin:0!important;padding:0!important}
+  #view-auftrag{display:block!important}
+  .print-page{display:block!important;width:194mm!important;margin:1.5mm 8mm 0!important;padding:0!important}
+  .card{box-sizing:border-box!important;background:#fff!important;border:1px solid #c9d0cc!important;border-radius:0!important;box-shadow:none!important;margin:0 0 1.1mm!important;padding:1.1mm 1.5mm!important;break-inside:avoid!important;page-break-inside:avoid!important}
+  .card h2{box-sizing:border-box!important;background:#187a4d!important;color:#fff!important;font-size:6.7pt!important;line-height:4.2mm!important;height:4.2mm!important;padding:0 1.3mm!important;margin:-1.1mm -1.5mm .8mm!important;font-weight:700!important}
+  .grid{gap:0!important}
+  .grid label{font-size:4.55pt!important;line-height:1.05!important;gap:.35mm!important}
+  input,select,textarea{box-sizing:border-box!important;font-size:5.5pt!important;line-height:1.05!important;padding:.55mm .8mm!important;border:1px solid #b9c1bd!important;border-radius:0!important;min-height:0!important;margin:0!important;height:4.6mm!important;background:#fff!important}
+  textarea{height:9.5mm!important;resize:none!important}
+  .grid label.wide{grid-column:1/-1!important}
+  .voice-row{display:block!important}
+  .employee-columns{display:grid!important;grid-template-columns:1.6fr .72fr .72fr .8fr .86fr 0!important;gap:0!important;font-size:4.55pt!important;line-height:1!important;margin:0!important;background:#e8ecea!important;border:1px solid #c5ccc8!important;padding:.75mm!important}
+  .employee-mobile-columns{display:none!important}
+  .employee-row{grid-template-columns:1.6fr .72fr .72fr .8fr .86fr 0!important;gap:0!important;margin:0!important}
+  .employee-row input{height:4.3mm!important;font-size:5.25pt!important;border-top:0!important;border-right:0!important}
+  .employee-row button{display:none!important}
+  .employee-row .hours{background:#f7f8f7!important}
+  .employee-summary{margin:0!important;padding:.7mm 1mm!important;text-align:right!important;font-size:5.25pt!important;font-weight:700!important;background:#f0f3f2!important;border:1px solid #c9d0cc!important;border-top:0!important}
+  .rowhead{font-size:4.55pt!important;line-height:1!important;gap:0!important;margin:0!important;background:#e8ecea!important;border:1px solid #c5ccc8!important;padding:.75mm!important}
+  .mathead,.matrow,.setuphead,.setuprow{grid-template-columns:minmax(0,1fr) 20mm 17mm 0!important;gap:0!important}
+  .matrow,.setuprow{margin:0!important;padding:0!important}
+  .matrow input,.setuprow input,.matrow select,.setuprow select{height:4.3mm!important;font-size:5.25pt!important;border-top:0!important;border-right:0!important}
+  .matrow button,.setuprow button{display:none!important}
+  .travel-card .grid{grid-template-columns:1fr 1fr!important}
+  .signature-grid{grid-template-columns:25mm 1fr 1fr!important;gap:.8mm!important}
+  .signature-block{border:1px solid #c9d0cc!important;border-radius:0!important;padding:.75mm!important;min-height:18mm!important}
+  .signature-block b{font-size:4.55pt!important}
+  .signature-block canvas{height:11.5mm!important;border-bottom:1px solid #cbd4cf!important}
+  .signature-intro{font-size:4.3pt!important;line-height:1.1!important;margin:0 0 .7mm!important}
+  .signature-card:after{content:"Der Auftraggeber erklärt mit Unterschrift die ordnungsgemäße Ausführung der Arbeiten. Mit Auftragserteilung erklärt sich der Auftraggeber mit unseren Geschäftsbedingungen einverstanden. Es gelten die Stundensätze, die auf unserer Internetseite veröffentlicht sind. Die Arbeitszeit beginnt mit Verlassen unseres Betriebes in Baunatal und endet bei Rückkehr. Materialkosten werden je nach Verbrauch in Rechnung gestellt. Da es sich bei Arbeiten an Dächern um eine sehr gefahrenträchtige Arbeit handelt, entstehen Kosten der Baustelleneinrichtung. Die Baustelleneinrichtung beinhaltet Sicherungsmaßnahmen unterschiedlicher Art, die vom Gesetzgeber bei Dacharbeiten vorgeschrieben sind. Auch bei Festpreisangeboten können Zusatzkosten entstehen. Sie erhalten eine Rechnung von uns, die Zahlung ist dann innerhalb 8 Tagen ohne Abzug fällig. Unsere aktuellen Stundensätze und vollständigen Geschäftsbedingungen können Sie jederzeit auf unserer Internetseite einsehen.";display:block;font-size:3.45pt!important;line-height:1.08!important;color:#222!important;margin-top:.8mm!important;border-top:1px solid #d4dad7!important;padding-top:.7mm!important}
+  .photos-card{display:block!important;break-before:page!important;page-break-before:always!important;margin-top:0!important;padding:0!important;border:0!important}
+  .photos-card .photo-preview{display:grid!important;grid-template-columns:1fr 1fr!important;gap:3mm!important;padding:0!important}
+  .photoitem{height:118mm!important;border:1px solid #d0d6d2!important;break-inside:avoid!important;page-break-inside:avoid!important;display:flex!important;align-items:center!important;justify-content:center!important}
+  .photoitem img{width:100%!important;height:100%!important;object-fit:contain!important;border:0!important}
+  .photoitem button,.photoitem small{display:none!important}
+  .print-page > .card:not(.photos-card){break-inside:avoid!important;page-break-inside:avoid!important}
+}
+
+/* PROTOTYP6: separate PDF document, independent from the app UI */
+#pdfTemplate{display:none}
+#pdfTemplate.printing{display:block!important;position:fixed!important;left:0!important;top:0!important;width:100%!important;z-index:99999!important;background:#fff!important}
+#pdfTemplate.printing .pdf-sheet{display:block}
+.pdf-sheet{box-sizing:border-box;width:194mm;min-height:285mm;margin:0 auto;padding:4mm 0 3mm;background:#fff;color:#17211c;font-family:Arial,Helvetica,sans-serif}
+.pdf-head{height:19mm;display:grid;grid-template-columns:48mm 1fr 42mm;align-items:center;gap:3mm;border-bottom:1mm solid #2d7b54}
+.pdf-logo img{width:47mm;max-height:12mm;object-fit:contain}
+.pdf-company{font-size:6.2pt;line-height:1.2;color:#53625b}
+.pdf-title{text-align:right;color:#1f7b50;font-size:10pt;font-weight:800;line-height:1.05}.pdf-title span{font-size:7pt}
+.pdf-info,.pdf-table,.pdf-sign{width:100%;border-collapse:collapse;table-layout:fixed}
+.pdf-info{margin-top:2mm;font-size:6.2pt}
+.pdf-info th{background:#e7ebe9;color:#53625b;text-align:left;font-weight:700;padding:1mm;border:1px solid #c5ccc8}
+.pdf-info td{padding:1.1mm;border:1px solid #c5ccc8;font-weight:600;vertical-align:top}
+.pdf-section{margin-top:1.7mm;border:1px solid #c5ccc8;break-inside:avoid;page-break-inside:avoid}
+.pdf-bar{height:4.7mm;line-height:4.7mm;background:#187a4d;color:#fff;font-size:7.1pt;font-weight:800;padding:0 1.5mm}
+.pdf-work{min-height:11mm;padding:1.4mm;font-size:6.1pt;line-height:1.25}
+.pdf-table{font-size:5.9pt}.pdf-table th{background:#e7ebe9;font-weight:800;text-align:left}.pdf-table th,.pdf-table td{border:1px solid #c5ccc8;padding:.85mm;vertical-align:middle}.pdf-table tfoot td{background:#f0f3f2;font-weight:800;text-align:right}.pdf-empty{text-align:left;color:#69746f}
+.pdf-table th:nth-child(1){width:44%}.pdf-table th:nth-child(2){width:18%}.pdf-table th:nth-child(3){width:18%}.pdf-table th:nth-child(4){width:10%}.pdf-table th:nth-child(5){width:10%}
+.pdf-confirm-text{padding:1.1mm 1.5mm;font-size:5.7pt}
+.pdf-sign{font-size:5.7pt}.pdf-sign th{background:#e7ebe9;text-align:left;border:1px solid #c5ccc8;padding:.8mm}.pdf-sign td{border:1px solid #c5ccc8;padding:1mm;height:16mm;vertical-align:top}.pdf-sign img{max-width:100%;height:13mm;object-fit:contain}
+.pdf-agb{font-size:4.1pt;line-height:1.12;padding:1.1mm 1.5mm;border-top:1px solid #d0d6d3}
+.pdf-footer{font-size:4.1pt;color:#5c6862;margin-top:1mm}.pdf-footer span{float:right}
+@media print{
+  body>*:not(#pdfTemplate){display:none!important}
+  #pdfTemplate.printing{position:static!important;display:block!important}
+  #pdfTemplate.printing .pdf-sheet{width:194mm!important;height:285mm!important;min-height:285mm!important;margin:0 auto!important;padding:4mm 0 3mm!important}
+  @page{size:A4 portrait;margin:6mm 8mm}
+}
+
+/* PROTOTYP7: Mitarbeiter-Zeiterfassung wieder als kompakte Tabellenzeile */
+@media(max-width:720px){
+  .employee-columns{
+    display:grid!important;
+    grid-template-columns:minmax(95px,1.55fr) .72fr .72fr .82fr .88fr 36px!important;
+    gap:3px!important; align-items:center!important;
+    font-size:10px!important; line-height:1.05!important;
+    padding:7px 5px!important; margin:0!important; overflow:hidden!important;
+  }
+  .employee-columns span{min-width:0!important}
+  .employee-mobile-columns{display:none!important}
+  .employee-row{
+    display:grid!important;
+    grid-template-columns:minmax(95px,1.55fr) .72fr .72fr .82fr .88fr 36px!important;
+    gap:3px!important; align-items:center!important;
+    margin:0!important; padding:5px!important; overflow:hidden!important;
+  }
+  .employee-row .ename,.employee-row .beg,.employee-row .end,.employee-row .pause,.employee-row .hours{
+    grid-column:auto!important; grid-row:auto!important;
+    width:100%!important; min-width:0!important; box-sizing:border-box!important;
+    height:42px!important; padding:6px 5px!important; font-size:13px!important;
+  }
+  .employee-row button{grid-column:auto!important;grid-row:auto!important;width:36px!important;height:42px!important;padding:0!important}
+  .employee-summary{text-align:right!important;font-size:12px!important;padding:7px!important}
+}
+@media print{
+  html,body{background:#fff!important}
+  #pdfTemplate{display:block!important;visibility:visible!important}
+  #pdfTemplate.printing{display:block!important;visibility:visible!important;position:static!important}
+  #pdfTemplate.printing *{visibility:visible!important}
+  body > *:not(#pdfTemplate){display:none!important}
+}
+
+/* Vier Baustellenfotos pro A4-PDF-Seite */
+#pdfPhotoPages{display:block}
+.pdf-photo-page{width:194mm;height:285mm;box-sizing:border-box;margin:0 auto;padding:0 0 4mm;break-before:page;page-break-before:always;background:#fff;color:#17211c;font-family:Arial,Helvetica,sans-serif}
+.pdf-photo-head{height:18mm;box-sizing:border-box;display:grid;grid-template-columns:43mm 1fr 25mm;align-items:center;gap:3mm;border-bottom:1mm solid #2d7b54}
+.pdf-photo-head img{width:40mm;max-height:10mm;object-fit:contain}.pdf-photo-head b{font-size:8pt;color:#1f7b50}.pdf-photo-head div{font-size:6pt;line-height:1.2}.pdf-photo-count{text-align:right;font-weight:700}
+.pdf-photo-grid{height:260mm;margin-top:3mm;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4mm;box-sizing:border-box}
+.pdf-photo-item{min-width:0;min-height:0;border:1px solid #c5ccc8;padding:2mm;display:flex;flex-direction:column;align-items:center;justify-content:center;break-inside:avoid;page-break-inside:avoid;overflow:hidden}
+.pdf-photo-item img{display:block;max-width:100%;max-height:calc(100% - 7mm);width:auto;height:auto;object-fit:contain;min-height:0}
+.pdf-photo-caption{flex:0 0 auto;width:100%;font-size:5.5pt;color:#53625b;margin-top:1.5mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media print{#pdfPhotoPages{display:block!important}.pdf-photo-page{break-before:page!important;page-break-before:always!important}.pdf-photo-grid{break-inside:avoid!important;page-break-inside:avoid!important}}
+
+.photoitem .mark-btn{position:absolute;left:6px;bottom:34px;border:1px solid #d40000;border-radius:6px;background:#fff;color:#b00000;padding:6px 8px;cursor:pointer;font-weight:700}.photo-editor{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9999;display:flex;align-items:center;justify-content:center;padding:14px}.photo-editor[hidden]{display:none}.photo-editor-panel{width:min(96vw,980px);max-height:96vh;overflow:auto;background:#fff;border-radius:12px;padding:14px}.photo-editor-head{display:flex;justify-content:space-between;align-items:center;font-size:18px}.photo-editor-head button{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:24px;cursor:pointer}.photo-canvas-wrap{display:flex;justify-content:center;overflow:auto;background:#202522;border-radius:8px;padding:8px;margin:8px 0}.photo-canvas-wrap canvas{max-width:100%;height:auto;touch-action:none;display:block}.photo-editor-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}.photo-editor-actions button{border:1px solid #cbd4cf;background:#fff;border-radius:7px;padding:10px 13px;cursor:pointer;font-weight:700}
+
+/* DACHWERK-Feinschliff: grüner Marken-Hintergrund zwischen den Formular-Karten beim Auftrag erstellen */
+@media screen {
+  #view-auftrag .print-page {
+    background: #2d7b54;
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(24, 61, 42, 0.12);
+  }
+  #view-auftrag .card {
+    border-color: rgba(255,255,255,0.55);
+  }
+}
+
+
+/* DACHWERK-Feinschliff: grüner Marken-Hintergrund auf allen App-Seiten; grüne Aktionen bleiben weiß und gut erkennbar */
+@media screen {
+  .appview {
+    background: #2d7b54;
+    padding: 12px;
+    border-radius: 14px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(24, 61, 42, 0.12);
+  }
+  #view-auftrag .print-page {
+    background: #2d7b54;
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(24, 61, 42, 0.12);
+  }
+  .appview .card { border-color: rgba(255,255,255,0.65); }
+  .appview button.primary,
+  .appview .navbtn.active,
+  .appview .filebutton {
+    background: #fff !important;
+    color: #246b49 !important;
+    border: 1px solid #fff !important;
+  }
+  .appnav .navbtn {
+    background: #fff !important;
+    color: #246b49 !important;
+    border-color: #fff !important;
+  }
+  .appnav .navbtn.active {
+    background: #eaf4ee !important;
+    color: #174c32 !important;
+    border-color: #fff !important;
+    box-shadow: inset 0 -3px 0 #246b49;
+  }
+  .appview .actions button,
+  .appview .toolbar button,
+  .appview .section-title button,
+  .appview .order-actions button,
+  .appview .signature-actions button,
+  .appview .address-actions button {
+    background: #fff;
+    color: #246b49;
+    border-color: #dce7e0;
+  }
+  .signature-terms {
+    margin: 12px 0 0;
+    padding: 12px;
+    border: 1px solid #dce3df;
+    border-radius: 8px;
+    background: #f7faf8;
+    color: #34433d;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+/* Fahrtkosten je Baustellentag */
+.travel-columns,.travel-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(130px,.55fr) 42px;gap:8px;align-items:center}
+.travel-columns{font-size:12px;color:#66736d;font-weight:700;margin:10px 0 5px}
+.travel-row{margin:7px 0}
+.travel-row button{height:40px;border:0;border-radius:6px;background:#f1f3f2;cursor:pointer;font-size:20px}
+@media(max-width:600px){.travel-columns,.travel-row{grid-template-columns:minmax(0,1fr) minmax(100px,.7fr) 38px;gap:6px}}
+
+/* Suchfeld in der Auftragsübersicht */
+.order-search{display:flex;flex-direction:column;gap:6px;margin:16px 0 18px;padding:14px;background:#fff;border:1px solid #dce7e0;border-radius:10px}
+.order-search label{font-weight:700;color:#246b49;font-size:14px}
+.order-search input{width:100%;box-sizing:border-box;min-height:44px;padding:10px 12px;border:1px solid #cbd8d0;border-radius:7px;font:inherit;background:#fff;color:#26352d}
+.order-search input:focus{outline:2px solid #2d7b54;outline-offset:1px}
+
+/* DACHWERK Pro UI – hochwertige, dezente Tiefenwirkung (nur App-Ansicht, PDF bleibt unverändert) */
+@media screen {
+  :root { color-scheme: light; }
+  body { background: linear-gradient(145deg,#e4eee8 0%,#f3f7f4 42%,#e8f0eb 100%); color:#1c2b23; }
+  header { background:linear-gradient(135deg,#ffffff 0%,#f5f9f6 100%); border-bottom:1px solid #d1ded6; box-shadow:0 5px 18px rgba(24,61,42,.08); position:relative; z-index:2; }
+  .brand img { filter:drop-shadow(0 3px 3px rgba(23,57,39,.12)); }
+  .headright { color:#51665a; }
+  .appnav { background:linear-gradient(110deg,#1c3d2d,#294f3b 65%,#203b2d); padding-top:12px; padding-bottom:12px; box-shadow:0 7px 20px rgba(20,51,35,.2); }
+  .navbtn { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.24); border-radius:10px; padding:10px 15px; box-shadow:inset 0 1px 0 rgba(255,255,255,.08); transition:transform .16s ease,background .16s ease,box-shadow .16s ease; }
+  .navbtn:hover { transform:translateY(-1px); background:rgba(255,255,255,.18); }
+  .navbtn.active { background:#fff; color:#246342; border-color:#fff; box-shadow:0 4px 12px rgba(0,0,0,.16); }
+  .appview { max-width:1240px; margin:26px auto; }
+  #view-auftrag .print-page { background:linear-gradient(145deg,#2d7b54 0%,#246545 100%); padding:14px; border-radius:18px; box-shadow:0 16px 38px rgba(24,61,42,.17),inset 0 1px 0 rgba(255,255,255,.15); }
+  .card { background:linear-gradient(155deg,#fff 0%,#fbfdfb 100%); border:1px solid rgba(206,221,212,.95); border-radius:14px; padding:19px; margin-bottom:16px; box-shadow:0 5px 16px rgba(25,59,40,.07),0 1px 2px rgba(25,59,40,.04); transition:box-shadow .18s ease,transform .18s ease; }
+  .card:hover { box-shadow:0 8px 23px rgba(25,59,40,.1),0 2px 4px rgba(25,59,40,.04); }
+  .card h2 { color:#234a34; letter-spacing:.01em; }
+  .section-title h2 { font-size:19px; }
+  .subtext,.photohelp,.hint { color:#64786c; }
+  .grid { gap:16px; }
+  input,select,textarea { border-color:#c8d7cd; border-radius:9px; background:#fff; box-shadow:inset 0 1px 2px rgba(24,61,42,.035); transition:border-color .15s ease,box-shadow .15s ease; }
+  input:focus,select:focus,textarea:focus { outline:none; border-color:#4a9870; box-shadow:0 0 0 3px rgba(45,123,84,.14); }
+  button,.filebutton { transition:transform .15s ease,box-shadow .15s ease,background .15s ease; }
+  .toolbar button,.actions button,.section-title button,.order-actions button,.signature-actions button,.address-actions button,.filebutton,.matrow button,.setuprow button,.employee-row button,.masterrow button,.voice-button,.primary { background:#fff!important; color:#246342!important; border:1px solid #b9d2c2!important; border-radius:9px!important; box-shadow:0 2px 0 rgba(36,99,66,.08),0 3px 9px rgba(24,61,42,.06); }
+  .toolbar button:hover,.actions button:hover,.section-title button:hover,.order-actions button:hover,.signature-actions button:hover,.address-actions button:hover,.filebutton:hover,.matrow button:hover,.setuprow button:hover,.employee-row button:hover,.masterrow button:hover,.voice-button:hover,.primary:hover { transform:translateY(-1px); background:#f2f8f4!important; box-shadow:0 4px 0 rgba(36,99,66,.07),0 7px 14px rgba(24,61,42,.1); }
+  .navbtn { color:#fff!important; }
+  .navbtn.active { color:#246342!important; }
+  .danger { color:#a33131!important; }
+  .order-card { background:linear-gradient(145deg,#fff,#f8fbf9); border:1px solid #d2e0d7; border-radius:13px; padding:16px; box-shadow:0 4px 12px rgba(25,59,40,.055); }
+  .order-card:hover { border-color:#9ec4ac; box-shadow:0 8px 20px rgba(25,59,40,.1); }
+  .order-card h3 { color:#213e2d; }
+  .eyebrow { color:#2d7b54; }
+  .storage { background:linear-gradient(135deg,#f7fbf8,#edf5f0); border-color:#d4e3d9; }
+  .bar { background:#dce9e0; }
+  .bar i { background:linear-gradient(90deg,#2d7b54,#65a77f); }
+  .signature-block,.photoitem { border-color:#d4e1d9; border-radius:10px; }
+  .signature-terms { background:#f5f9f6; border-left:3px solid #2d7b54; padding:10px 12px; border-radius:0 8px 8px 0; }
+  .travel-card { border-left:4px solid #4e8b68; }
+  .appointment { border-left:4px solid #4e8b68; }
+  .employee-summary { background:linear-gradient(120deg,#eff7f1,#e5f0e8); border-color:#cfe0d4; color:#234a34; border-radius:10px; }
+  .empty-state { background:rgba(255,255,255,.55); border-radius:10px; }
+}
+@media screen and (max-width:720px) {
+  .appview { margin:15px auto; }
+  #view-auftrag .print-page { padding:8px; border-radius:13px; }
+  .card { padding:14px; border-radius:12px; margin-bottom:11px; }
+  .appnav { gap:6px; }
+  .navbtn { padding:9px 12px; }
+}
+
+
+/* PDF-Tabellen: mehr Platz für Verbrauchsangaben und mehrere Materialmengen */
+#pdfTemplate .pdf-material-table,
+#pdfTemplate .pdf-setup-table{table-layout:fixed;width:100%;font-size:6.8pt}
+#pdfTemplate .pdf-material-table th:nth-child(1),
+#pdfTemplate .pdf-setup-table th:nth-child(1){width:28%;white-space:nowrap}
+#pdfTemplate .pdf-material-table th:nth-child(2),
+#pdfTemplate .pdf-setup-table th:nth-child(2){width:52%}
+#pdfTemplate .pdf-material-table th:nth-child(3),
+#pdfTemplate .pdf-setup-table th:nth-child(3){width:20%}
+#pdfTemplate .pdf-material-table th,
+#pdfTemplate .pdf-material-table td,
+#pdfTemplate .pdf-setup-table th,
+#pdfTemplate .pdf-setup-table td{padding:1mm 1.2mm;line-height:1.15;overflow-wrap:anywhere}
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-material-table,
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-setup-table{font-size:6.1pt}
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-material-table th,
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-material-table td,
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-setup-table th,
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-setup-table td{padding:.65mm 1mm;line-height:1.08}
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-work{font-size:5.7pt;line-height:1.15;min-height:7mm;padding:1mm}
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-section{margin-top:1.1mm}
+#pdfTemplate .pdf-sheet.pdf-dense .pdf-bar{height:4.2mm;line-height:4.2mm;font-size:6.6pt}
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-material-table,
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-setup-table{font-size:5.5pt}
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-material-table th,
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-material-table td,
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-setup-table th,
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-setup-table td{padding:.45mm .8mm;line-height:1.02}
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-work{font-size:5.1pt;line-height:1.08;min-height:5mm;padding:.7mm}
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-section{margin-top:.7mm}
+#pdfTemplate .pdf-sheet.pdf-very-dense .pdf-bar{height:3.8mm;line-height:3.8mm;font-size:6.1pt}
+
+
+/* Verbrauchs-Eingabe: große, gut lesbare Bearbeitungsfläche mit Spracheingabe */
+#pdfTemplate .pdf-material-table th:nth-child(1),#pdfTemplate .pdf-material-table td:nth-child(1){width:18%;white-space:normal}
+#pdfTemplate .pdf-material-table th:nth-child(2),#pdfTemplate .pdf-material-table td:nth-child(2){width:64%}
+#pdfTemplate .pdf-material-table th:nth-child(3),#pdfTemplate .pdf-material-table td:nth-child(3){width:18%}
+#pdfTemplate .pdf-setup-table th:nth-child(1),#pdfTemplate .pdf-setup-table td:nth-child(1){width:25%;white-space:normal}
+#pdfTemplate .pdf-setup-table th:nth-child(2),#pdfTemplate .pdf-setup-table td:nth-child(2){width:57%}
+#pdfTemplate .pdf-setup-table th:nth-child(3),#pdfTemplate .pdf-setup-table td:nth-child(3){width:18%}
+#pdfTemplate .pdf-material-table td,#pdfTemplate .pdf-setup-table td{white-space:normal;overflow-wrap:anywhere;word-break:normal;vertical-align:top}
+.qty{cursor:pointer;background-image:linear-gradient(transparent,transparent);padding-right:28px!important}
+.qty:read-only{background-color:#f7fbf8;cursor:pointer}
+.consumption-modal[hidden]{display:none!important}
+.consumption-modal{position:fixed;inset:0;z-index:9999;background:rgba(15,35,25,.62);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(5px)}
+.consumption-dialog{width:min(680px,100%);background:#fff;border:1px solid #dce7df;border-radius:18px;padding:20px;box-shadow:0 24px 80px rgba(0,0,0,.28)}
+.consumption-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
+.consumption-dialog-head h2{margin:0 0 5px;color:#205d3d;font-size:1.25rem}
+.consumption-dialog-head p{margin:0;color:#617067;font-size:.92rem}
+#consumptionText{display:block;width:100%;min-height:150px;resize:vertical;font:1.08rem/1.5 system-ui,sans-serif;padding:14px;border:1px solid #b9cfc0;border-radius:12px;box-sizing:border-box}
+.consumption-actions{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.consumption-actions span{flex:1}
+.consumption-close{font-size:1.6rem;line-height:1;border-radius:50%;min-width:40px;padding:5px}
+@media(max-width:600px){.consumption-dialog{padding:15px;border-radius:15px}.consumption-actions{gap:6px}.consumption-actions span{display:none}.consumption-actions button{flex:1}}
+
+/* PDF-Fix: Verbrauchswerte aus dem großen Textfeld sicher anzeigen und Tabellen sauber ausrichten */
+#pdfTemplate .pdf-material-table,
+#pdfTemplate .pdf-setup-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+#pdfTemplate .pdf-material-table th:nth-child(1),
+#pdfTemplate .pdf-material-table td:nth-child(1),
+#pdfTemplate .pdf-setup-table th:nth-child(1),
+#pdfTemplate .pdf-setup-table td:nth-child(1) { width: 18% !important; }
+#pdfTemplate .pdf-material-table th:nth-child(2),
+#pdfTemplate .pdf-material-table td:nth-child(2),
+#pdfTemplate .pdf-setup-table th:nth-child(2),
+#pdfTemplate .pdf-setup-table td:nth-child(2) { width: 64% !important; }
+#pdfTemplate .pdf-material-table th:nth-child(3),
+#pdfTemplate .pdf-material-table td:nth-child(3),
+#pdfTemplate .pdf-setup-table th:nth-child(3),
+#pdfTemplate .pdf-setup-table td:nth-child(3) { width: 18% !important; }
+#pdfTemplate .pdf-material-table td:nth-child(2),
+#pdfTemplate .pdf-setup-table td:nth-child(2) {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  vertical-align: top !important;
+}
+#pdfTemplate .pdf-material-table td,
+#pdfTemplate .pdf-setup-table td,
+#pdfTemplate .pdf-material-table th,
+#pdfTemplate .pdf-setup-table th {
+  box-sizing: border-box;
+  overflow: visible;
+  vertical-align: top;
+}
+
+/* PDF-Korrektur: Verbrauchstexte vollständig und ordentlich innerhalb der Tabellenzelle anzeigen */
+#pdfTemplate .pdf-material-table,
+#pdfTemplate .pdf-setup-table{width:100%;table-layout:fixed;border-collapse:collapse;}
+#pdfTemplate .pdf-material-table th:nth-child(1),
+#pdfTemplate .pdf-setup-table th:nth-child(1){width:22%;}
+#pdfTemplate .pdf-material-table th:nth-child(2),
+#pdfTemplate .pdf-setup-table th:nth-child(2){width:68%;}
+#pdfTemplate .pdf-material-table th:nth-child(3),
+#pdfTemplate .pdf-setup-table th:nth-child(3){width:10%;}
+#pdfTemplate .pdf-material-table td,
+#pdfTemplate .pdf-setup-table td{white-space:normal;overflow-wrap:anywhere;word-break:normal;vertical-align:top;line-height:1.25;padding:1.1mm 1.3mm;}
+#pdfTemplate .pdf-material-table td:nth-child(2),
+#pdfTemplate .pdf-setup-table td:nth-child(2){white-space:pre-wrap;overflow-wrap:anywhere;}
+
+/* Desktop-Fix: Entfernen-Schaltflächen für Material und Baustelleneinrichtung immer sichtbar */
+@media screen and (min-width:721px){
+  .mathead,.setuphead,.matrow,.setuprow{
+    grid-template-columns:minmax(180px,1fr) minmax(220px,1.35fr) minmax(90px,120px) 42px;
+  }
+  .matrow button,.setuprow button{
+    display:inline-flex!important;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    min-width:42px;
+    height:40px;
+    font-size:24px;
+    line-height:1;
+    color:#a12b2b;
+    background:#fff5f5;
+    border:1px solid #e6caca;
+    border-radius:7px;
+    visibility:visible!important;
+    opacity:1!important;
+  }
+}
+@media screen and (max-width:720px){
+  .matrow button,.setuprow button{display:inline-flex!important;align-items:center;justify-content:center;visibility:visible!important;opacity:1!important;}
+}
